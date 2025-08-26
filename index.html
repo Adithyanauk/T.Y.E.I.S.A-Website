@@ -7,17 +7,531 @@
   <style>
     body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       background: #000;
       overflow-x: hidden;
       font-family: 'Arial', sans-serif;
       position: relative;
-      padding: 20px 15px;
       box-sizing: border-box;
+      color: #fff;
+      scroll-behavior: smooth;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Main Website Wrapper */
+    .main-wrapper {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow: visible;
+      padding: 0 5px;
+      box-sizing: border-box;
+    }
+
+    /* Mobile Responsive Styles */
+    
+    /* iPhone Pro Max, Samsung Galaxy S23 Ultra, Vivo X90 Pro (430px+) */
+    @media (max-width: 430px) and (min-width: 415px) {
+      .main-wrapper {
+        max-width: 100%;
+      }
+      
+      h1 {
+        font-size: 3.8rem;
+        letter-spacing: 1.0px;
+      }
+      
+      .earbuds {
+        width: 260px;
+      }
+      
+      .button {
+        padding: 16px 45px;
+        font-size: 1.05rem;
+        min-width: 160px;
+      }
+
+      .content-container {
+        gap: 40px;
+        padding: 0 20px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .main-content {
+        padding: 35px 20px;
+      }
+
+      .header {
+        padding: 25px 20px;
+      }
+
+      .developer-section {
+        margin: 40px 20px;
+        width: calc(100% - 40px);
+        padding: 35px 25px;
+      }
+    }
+
+    /* iPhone 14 Pro, Samsung Galaxy S23, Vivo V27 Pro (390-414px) */
+    @media (max-width: 414px) and (min-width: 390px) {
+      .main-wrapper {
+        max-width: 100%;
+      }
+      
+      h1 {
+        font-size: 3.5rem;
+        letter-spacing: 1.6px;
+      }
+      
+      .earbuds {
+        width: 240px;
+      }
+      
+      .button {
+        padding: 15px 42px;
+        font-size: 1rem;
+        min-width: 150px;
+      }
+
+      .content-container {
+        gap: 38px;
+        padding: 0 18px;
+      }
+
+      .container {
+        padding: 0 18px;
+      }
+
+      .main-content {
+        padding: 32px 18px;
+      }
+
+      .header {
+        padding: 22px 18px;
+      }
+
+      .developer-section {
+        margin: 38px 18px;
+        width: calc(100% - 36px);
+        padding: 32px 22px;
+      }
+    }
+
+    /* iPhone 12/13/14, Samsung Galaxy S22, Vivo X80 (375-389px) */
+    @media (max-width: 389px) and (min-width: 375px) {
+      .main-wrapper {
+        max-width: 100%;
+      }
+      
+      h1 {
+        font-size: 3.2rem;
+        letter-spacing: 1.4px;
+      }
+      
+      .earbuds {
+        width: 220px;
+      }
+      
+      .button {
+        padding: 14px 38px;
+        font-size: 0.95rem;
+        min-width: 140px;
+      }
+
+      .content-container {
+        gap: 35px;
+        padding: 0 16px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .main-content {
+        padding: 30px 16px;
+      }
+
+      .header {
+        padding: 20px 16px;
+      }
+
+      .developer-section {
+        margin: 35px 16px;
+        width: calc(100% - 32px);
+        padding: 30px 20px;
+      }
+    }
+
+    /* iPhone SE, Samsung Galaxy A series, Vivo Y series (360-374px) */
+    @media (max-width: 374px) and (min-width: 360px) {
+      .main-wrapper {
+        max-width: 100%;
+      }
+      
+      h1 {
+        font-size: 2.9rem;
+        letter-spacing: 1.2px;
+      }
+      
+      .earbuds {
+        width: 200px;
+      }
+      
+      .button {
+        padding: 13px 35px;
+        font-size: 0.9rem;
+        min-width: 130px;
+      }
+
+      .content-container {
+        gap: 32px;
+        padding: 0 14px;
+      }
+
+      .container {
+        padding: 0 14px;
+      }
+
+      .main-content {
+        padding: 28px 14px;
+      }
+
+      .header {
+        padding: 18px 14px;
+      }
+
+      .developer-section {
+        margin: 32px 14px;
+        width: calc(100% - 28px);
+        padding: 28px 18px;
+      }
+    }
+
+    /* Small phones like iPhone 5S, Samsung Galaxy A10 (320-359px) */
+    @media (max-width: 359px) {
+      .main-wrapper {
+        max-width: 100%;
+      }
+      
+      h1 {
+        font-size: 2.6rem;
+        letter-spacing: 1px;
+      }
+      
+      .earbuds {
+        width: 180px;
+      }
+      
+      .button {
+        padding: 12px 30px;
+        font-size: 0.85rem;
+        min-width: 120px;
+      }
+
+      .content-container {
+        gap: 28px;
+        padding: 0 12px;
+      }
+
+      .container {
+        padding: 0 12px;
+      }
+
+      .main-content {
+        padding: 25px 12px;
+      }
+
+      .header {
+        padding: 16px 12px;
+      }
+
+      .developer-section {
+        margin: 28px 12px;
+        width: calc(100% - 24px);
+        padding: 25px 16px;
+      }
+
+      .footer {
+        padding: 22px 12px;
+      }
+    }
+
+    /* Landscape Mode for Mobile Phones */
+    @media (max-height: 600px) and (orientation: landscape) {
+      .header {
+        min-height: 100vh;
+        padding: 60px 15px 15px 15px;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+        opacity: 0.8;
+      }
+      
+      .earbuds-container {
+        padding: 6px;
+      }
+      
+      .earbuds {
+        width: 140px;
+      }
+      
+      .button {
+        padding: 10px 25px;
+        font-size: 0.8rem;
+      }
+
+      .content-container {
+        gap: 25px;
+        padding: 0 15px;
+      }
+
+      .main-content {
+        padding: 25px 15px;
+      }
+
+      .developer-section {
+        margin: 30px 15px;
+        width: calc(100% - 30px);
+        padding: 25px 15px;
+      }
+    }
+
+    /* Extra responsive breakpoints for better text scaling */
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: clamp(1rem, 5.5vw, 2.8rem) !important;
+        letter-spacing: clamp(0.2px, 1.3vw, 1.8px) !important;
+        padding: 10px 15px !important;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      h1 {
+        font-size: clamp(0.9rem, 5vw, 2.2rem) !important;
+        letter-spacing: clamp(0.1px, 1vw, 1.2px) !important;
+        padding: 8px 12px !important;
+      }
+    }
+
+    @media screen and (max-width: 350px) {
+      h1 {
+        font-size: clamp(0.8rem, 4.5vw, 1.8rem) !important;
+        letter-spacing: clamp(0.1px, 0.8vw, 1px) !important;
+        padding: 6px 10px !important;
+      }
+    }
+
+    /* Universal Responsive Rules for All Screen Sizes */
+    @media screen and (max-width: 1200px) {
+      .main-wrapper {
+        padding: 0 clamp(5px, 2vw, 15px);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .main-wrapper {
+        max-width: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      .header {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: clamp(15px, 4vw, 25px);
+      }
+      
+      .content-container {
+        width: 100%;
+        max-width: 100%;
+        gap: clamp(15px, 4vw, 30px);
+        padding: clamp(8px, 3vw, 15px);
+      }
+      
+      h1 {
+        font-size: clamp(1rem, 5vw, 2.5rem);
+        letter-spacing: clamp(0.2px, 1.2vw, 1.5px);
+        margin: 8px auto;
+        padding: 8px 15px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: visible;
+      }
+      
+      .earbuds {
+        width: clamp(150px, 45vw, 250px);
+        height: auto;
+        max-width: 90%;
+      }
+      
+      .button {
+        font-size: clamp(0.8rem, 2.2vw, 1rem);
+        padding: clamp(10px, 2.5vw, 14px) clamp(20px, 5vw, 35px);
+        min-width: clamp(100px, 30vw, 140px);
+        max-width: 85%;
+      }
+      
+      .section {
+        margin-bottom: clamp(15px, 4vw, 25px);
+        padding: clamp(12px, 3vw, 20px);
+      }
+      
+      .section-title {
+        font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+        margin-bottom: clamp(12px, 2.5vw, 18px);
+      }
+      
+      .section-subtitle {
+        font-size: clamp(1rem, 2.8vw, 1.2rem);
+        margin: clamp(12px, 3vw, 20px) 0 clamp(8px, 1.5vw, 12px) 0;
+      }
+      
+      .feature-title {
+        font-size: clamp(0.95rem, 2.3vw, 1.05rem);
+      }
+      
+      .feature-desc {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+      }
+      
+      .developer-section {
+        margin: clamp(20px, 5vw, 35px) clamp(10px, 3vw, 20px);
+        padding: clamp(20px, 5vw, 35px) clamp(15px, 3vw, 20px);
+        width: calc(100% - clamp(20px, 6vw, 40px));
+      }
+      
+      .developer-title {
+        font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+      }
+      
+      .developer-bio {
+        font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .main-wrapper {
+        padding: 0 5px;
+      }
+      
+      .header {
+        padding: 15px 10px;
+      }
+      
+      .content-container {
+        gap: clamp(12px, 3vw, 20px);
+        padding: 5px;
+      }
+      
+      h1 {
+        font-size: clamp(0.9rem, 4.5vw, 2rem);
+        letter-spacing: clamp(0.1px, 1vw, 1px);
+        margin: 6px auto;
+        padding: 6px 10px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: visible;
+      }
+      
+      .earbuds {
+        width: clamp(130px, 40vw, 200px);
+      }
+      
+      .button {
+        font-size: clamp(0.75rem, 2vw, 0.9rem);
+        padding: clamp(8px, 2vw, 12px) clamp(15px, 4vw, 25px);
+        min-width: clamp(90px, 25vw, 120px);
+      }
+      
+      .section {
+        padding: clamp(10px, 2.5vw, 15px);
+        margin-bottom: clamp(12px, 3vw, 18px);
+      }
+      
+      .developer-section {
+        margin: clamp(15px, 4vw, 25px) clamp(8px, 2vw, 15px);
+        padding: clamp(15px, 4vw, 25px) clamp(12px, 2.5vw, 18px);
+        width: calc(100% - clamp(16px, 4vw, 30px));
+      }
+      
+      .developer-image {
+        width: clamp(80px, 20vw, 100px);
+        height: clamp(80px, 20vw, 100px);
+      }
+    }
+
+    @media screen and (max-width: 320px) {
+      .main-wrapper {
+        padding: 0 3px;
+      }
+      
+      h1 {
+        font-size: clamp(0.8rem, 4vw, 1.7rem);
+        letter-spacing: clamp(0.1px, 0.8vw, 0.8px);
+        margin: 5px auto;
+        padding: 5px 8px;
+        text-align: center;
+        width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow: visible;
+      }
+      
+      .earbuds {
+        width: clamp(110px, 35vw, 160px);
+      }
+      
+      .button {
+        font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+        padding: clamp(7px, 1.8vw, 10px) clamp(12px, 3.5vw, 20px);
+        min-width: clamp(80px, 22vw, 100px);
+      }
+      
+      .section {
+        padding: clamp(8px, 2vw, 12px);
+      }
+      
+      .developer-section {
+        margin: clamp(12px, 3vw, 20px) clamp(5px, 1.5vw, 10px);
+        padding: clamp(12px, 3vw, 20px) clamp(8px, 2vw, 15px);
+        width: calc(100% - clamp(10px, 3vw, 20px));
+      }
+    }
+
+    /* Header Section */
+    .header {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
     }
 
     .content-container {
@@ -27,23 +541,30 @@
       align-items: center;
       justify-content: center;
       z-index: 2;
-      gap: 35px;
+      gap: clamp(20px, 5vw, 40px);
       width: 100%;
-      max-width: 350px;
+      max-width: 100%;
       text-align: center;
-      margin: 0 auto;
+      padding: clamp(15px, 4vw, 25px);
+      box-sizing: border-box;
+      overflow: visible;
     }
 
     .image-text-wrapper {
       position: relative;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 100%;
+      max-width: 100%;
+      text-align: center;
+      overflow: visible;
+      padding: 0 10px;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: clamp(1.2rem, 6vw, 3.2rem);
       font-weight: 900;
       background: linear-gradient(135deg, 
         #ffffff 0%, 
@@ -60,23 +581,38 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 
-        0 0 25px rgba(255,255,255,0.7),
-        0 2px 4px rgba(0,0,0,0.3),
-        0 0 12px rgba(255,255,255,0.5),
-        0 0 20px rgba(173,181,189,0.4);
-      margin: 0;
-      letter-spacing: 2px;
-      z-index: 1;
+      text-shadow: none;
+      margin: 15px auto;
+      padding: 15px 20px;
+      letter-spacing: clamp(0.2px, 1.5vw, 2px);
+      line-height: 1.3;
       text-align: center;
-      line-height: 1.1;
-      position: absolute;
-      top: 10%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.75;
-      user-select: none;
-      pointer-events: none;
+      width: 100%;
+      margin: 15px auto;
+      display: block;
+      min-width: fit-content;
+      max-width: calc(100% - 40px);
+      white-space: nowrap;
+      overflow: visible;
+      box-sizing: content-box;
+    }
+
+    .earbuds-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 100%;
+      padding: clamp(5px, 2vw, 10px);
+      margin: clamp(10px, 3vw, 20px) 0;
+    }
+
+    .earbuds {
+      width: clamp(180px, 50vw, 280px);
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .earbuds-container {
@@ -90,9 +626,9 @@
     }
 
     .earbuds {
-      width: 200px;
+      width: 280px;
       height: auto;
-      max-width: 85vw;
+      max-width: 90vw;
       animation: float-earbuds 6s ease-in-out infinite;
       filter: brightness(1.1);
       display: block;
@@ -110,13 +646,272 @@
       }
     }
 
+    /* Main Content Section */
+    .main-content {
+      background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+      padding: clamp(20px, 5vw, 40px) clamp(10px, 4vw, 20px);
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 0 clamp(10px, 4vw, 20px);
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .section {
+      margin-bottom: clamp(20px, 5vw, 40px);
+      padding: clamp(15px, 4vw, 25px) clamp(10px, 4vw, 20px);
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: clamp(15px, 3vw, 20px);
+      background: linear-gradient(135deg, #00c3ff, #0099cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+
+    .section-subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.3rem);
+      font-weight: 600;
+      margin: clamp(15px, 4vw, 25px) 0 clamp(10px, 2vw, 15px) 0;
+      color: #00b8ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .feature-item {
+      margin-bottom: clamp(15px, 3vw, 20px);
+      padding: clamp(10px, 3vw, 15px);
+      background: rgba(0, 184, 255, 0.05);
+      border-radius: 10px;
+      border-left: 3px solid #00b8ff;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .feature-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: clamp(5px, 1.5vw, 8px);
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+
+    .feature-desc {
+      color: #ccc;
+      line-height: 1.5;
+      font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .command-example {
+      background: rgba(0, 184, 255, 0.1);
+      padding: clamp(8px, 2.5vw, 10px) clamp(10px, 3vw, 15px);
+      border-radius: 8px;
+      margin: clamp(8px, 2vw, 10px) 0;
+      font-style: italic;
+      color: #87ceeb;
+      border: 1px solid rgba(0, 184, 255, 0.2);
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .highlight-text {
+      color: #00ff88;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      padding: clamp(20px, 5vw, 30px) clamp(10px, 4vw, 20px);
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: clamp(20px, 5vw, 40px);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-content {
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #00c3ff, #0099cc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .footer-text {
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    /* Developer Section */
+    .developer-section {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      padding: clamp(25px, 6vw, 40px) clamp(15px, 4vw, 20px);
+      text-align: center;
+      margin: clamp(25px, 6vw, 40px) clamp(15px, 4vw, 20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      width: calc(100% - clamp(30px, 8vw, 40px));
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .developer-title {
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #00ff88, #00cc66);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: clamp(15px, 4vw, 25px);
+      line-height: 1.3;
+      word-wrap: break-word;
+    }
+
+    .developer-image {
+      width: clamp(100px, 25vw, 120px);
+      height: clamp(100px, 25vw, 120px);
+      border-radius: 50%;
+      margin: 0 auto clamp(15px, 3vw, 20px);
+      border: 3px solid rgba(0, 255, 136, 0.3);
+      box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+      object-fit: cover;
+      display: block;
+    }
+
+    .developer-bio {
+      color: #e0e0e0;
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      line-height: 1.6;
+      margin-bottom: clamp(20px, 4vw, 25px);
+      text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .developer-links {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(10px, 2.5vw, 12px);
+      margin-top: clamp(15px, 3vw, 20px);
+      width: 100%;
+      align-items: center;
+    }
+
+    .developer-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      background: rgba(0, 184, 255, 0.1);
+      border: 1px solid rgba(0, 184, 255, 0.3);
+      border-radius: 8px;
+      color: #87ceeb;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .developer-link:hover {
+      background: rgba(0, 184, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 184, 255, 0.2);
+    }
+
+    .link-icon {
+      margin-right: 8px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 430px) {
+      .developer-section {
+        padding: 30px 15px;
+        margin: 30px auto;
+        max-width: 350px;
+      }
+
+      .developer-title {
+        font-size: 1.6rem;
+      }
+
+      .developer-image {
+        width: 100px;
+        height: 100px;
+      }
+
+      .developer-bio {
+        font-size: 0.95rem;
+      }
+    }
+
     .button {
-      padding: 12px 32px;
+      padding: 16px 48px;
       background: #000;
       color: #fff;
       border: 1px solid #333;
       border-radius: 25px;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       font-weight: bold;
       cursor: pointer;
       box-shadow: 
@@ -159,18 +954,18 @@
       }
       
       h1 {
-        font-size: 2.4rem;
+        font-size: 3.5rem;
         letter-spacing: 1.5px;
       }
       
       .earbuds {
-        width: 170px;
+        width: 240px;
       }
       
       .button {
-        padding: 11px 28px;
-        font-size: 0.85rem;
-        min-width: 130px;
+        padding: 14px 40px;
+        font-size: 1rem;
+        min-width: 150px;
       }
     }
 
@@ -185,18 +980,18 @@
       }
       
       h1 {
-        font-size: 2.2rem;
+        font-size: 3.2rem;
         letter-spacing: 1px;
       }
       
       .earbuds {
-        width: 155px;
+        width: 220px;
       }
       
       .button {
-        padding: 10px 26px;
-        font-size: 0.8rem;
-        min-width: 120px;
+        padding: 13px 35px;
+        font-size: 0.95rem;
+        min-width: 140px;
       }
     }
 
@@ -211,18 +1006,18 @@
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
         letter-spacing: 0.8px;
       }
       
       .earbuds {
-        width: 140px;
+        width: 200px;
       }
       
       .button {
-        padding: 9px 24px;
-        font-size: 0.75rem;
-        min-width: 110px;
+        padding: 12px 32px;
+        font-size: 0.9rem;
+        min-width: 130px;
       }
     }
 
@@ -237,7 +1032,7 @@
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 2.8rem;
         opacity: 0.7;
       }
       
@@ -246,12 +1041,12 @@
       }
       
       .earbuds {
-        width: 130px;
+        width: 180px;
       }
       
       .button {
-        padding: 8px 22px;
-        font-size: 0.7rem;
+        padding: 12px 30px;
+        font-size: 0.9rem;
       }
     }
 
@@ -364,12 +1159,12 @@
     }
 
     .button {
-      padding: 12px 30px;
+      padding: clamp(12px, 3vw, 16px) clamp(25px, 6vw, 45px);
       background: #000;
       color: #fff;
       border: 1px solid #333;
       border-radius: 25px;
-      font-size: 0.9rem;
+      font-size: clamp(0.85rem, 2.5vw, 1.05rem);
       font-weight: bold;
       cursor: pointer;
       box-shadow: 
@@ -379,12 +1174,14 @@
       z-index: 2;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      min-width: 150px;
+      min-width: clamp(120px, 35vw, 160px);
+      max-width: 90%;
       position: relative;
       overflow: hidden;
       display: block;
       margin: 0 auto;
       text-align: center;
+      width: fit-content;
     }
 
     .button:hover {
@@ -406,33 +1203,283 @@
   </style>
 </head>
 <body>
-  <!-- Gradient Glows -->
-  <div class="glow glow-blue"></div>
-  <div class="glow glow-purple"></div>
-  <div class="glow glow-pink"></div>
-  <div class="glow glow-cyan"></div>
-  <div class="glow glow-center"></div>
-  
-  <!-- Content Container -->
-  <div class="content-container">
-    <!-- Image and Text Wrapper -->
-    <div class="image-text-wrapper">
-      <!-- T.Y.E.I.S.A text as watermark (behind earbuds) -->
-      <h1>T.Y.E.I.S.A</h1>
+  <div class="main-wrapper">
+  <!-- Header Section -->
+  <section class="header" id="home">
+    <!-- Gradient Glows -->
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-pink"></div>
+    <div class="glow glow-cyan"></div>
+    <div class="glow glow-center"></div>
+    
+    <!-- Content Container -->
+    <div class="content-container">
+      <!-- Image and Text Wrapper -->
+      <div class="image-text-wrapper">
+        <!-- T.Y.E.I.S.A text as watermark (behind earbuds) -->
+        <h1>T.Y.E.I.S.A</h1>
+        
+        <!-- Earbuds Image (in front of text) -->
+        <div class="earbuds-container">
+          <img src="assets/earbuds.png" alt="Tyeisa Earbuds" class="earbuds">
+        </div>
+      </div>
       
-      <!-- Earbuds Image (in front of text) -->
-      <div class="earbuds-container">
-        <img src="assets/earbuds.png" alt="Tyeisa Earbuds" class="earbuds">
+      <!-- Download Button (centered below) -->
+      <a href="https://github.com/Adithyanauk/T.Y.E.I.S.A/releases/download/v1.0.0-beta/app-release.apk" 
+         download="TYEISA-app.apk" 
+         class="button" 
+         style="text-decoration: none; display: inline-block;"
+         id="download">
+        DOWNLOAD NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-content" id="info">
+    <div class="container">
+      
+      <!-- App Overview -->
+      <div class="section">
+        <div class="section-title">📱 TYEISA - Turn Your Earbuds Into a Smart Assistant</div>
+        <div class="section-subtitle">🎯 App Overview</div>
+        <p class="feature-desc">TYEISA is an advanced voice-activated AI assistant that transforms your regular earbuds into a powerful smart assistant. Experience hands-free interaction with cutting-edge speech recognition, natural language processing, and seamless device integration.</p>
+      </div>
+
+      <!-- Key Features -->
+      <div class="section">
+        <div class="section-title">🌟 Key Features</div>
+        
+        <div class="section-subtitle">🎤 Advanced Voice Recognition</div>
+        <div class="feature-item">
+          <div class="feature-title">Offline Speech Recognition</div>
+          <div class="feature-desc">Powered by Vosk technology with real-time audio processing and visual Siri-like waveform</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Wake Word Detection</div>
+          <div class="feature-desc">Just say <span class="highlight-text">"Hey Jarvis"</span> or <span class="highlight-text">"OK Jarvis"</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Continuous Listening</div>
+          <div class="feature-desc">Natural conversations with noise filtering to prevent false activations</div>
+        </div>
+
+        <div class="section-subtitle">🤖 AI-Powered Conversations</div>
+        <div class="feature-item">
+          <div class="feature-title">Google Gemini AI Integration</div>
+          <div class="feature-desc">Intelligent responses with context-aware conversations and memory retention</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Natural Language Understanding</div>
+          <div class="feature-desc">Complex queries with personalized responses using your name and preferences</div>
+        </div>
+
+        <div class="section-subtitle">📱 Smart Device Control</div>
+        <div class="feature-item">
+          <div class="feature-title">App Management</div>
+          <div class="feature-desc">Open/close YouTube, Spotify, Instagram, WhatsApp, and more</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Phone Calls</div>
+          <div class="feature-desc">
+            <div class="command-example">"Call Mummy", "Call Dad", or dial any number</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Navigation</div>
+          <div class="feature-desc">
+            <div class="command-example">"Take me to Reva University" opens Google Maps with directions</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Music Control</div>
+          <div class="feature-desc">Play specific songs on Spotify, YouTube Music</div>
+        </div>
+
+        <div class="section-subtitle">🎵 Entertainment Hub</div>
+        <div class="feature-item">
+          <div class="feature-title">YouTube Integration</div>
+          <div class="feature-desc">
+            <div class="command-example">"Play Doraemon songs on YouTube"</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Music Streaming</div>
+          <div class="feature-desc">Control Spotify, YouTube Music, Apple Music with voice commands</div>
+        </div>
+
+        <div class="section-subtitle">🗺️ Location & Navigation</div>
+        <div class="feature-item">
+          <div class="feature-title">Real-time Directions</div>
+          <div class="feature-desc">Navigate to any location using voice with Google Maps integration</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Location Search</div>
+          <div class="feature-desc">
+            <div class="command-example">"Where is the nearest hospital?"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice Experience -->
+      <div class="section">
+        <div class="section-title">🔊 Premium Voice Experience</div>
+        <div class="feature-item">
+          <div class="feature-title">Male Voice Priority</div>
+          <div class="feature-desc">Intelligent voice selection for masculine tone with Jarvis-like personality</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Instant TTS Response</div>
+          <div class="feature-desc">Zero-delay speech synthesis with British accent support</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Bluetooth Audio Optimization</div>
+          <div class="feature-desc">Enhanced quality for wireless audio experience</div>
+        </div>
+      </div>
+
+      <!-- Personalization -->
+      <div class="section">
+        <div class="section-title">⚙️ Personalization & UI</div>
+        <div class="feature-item">
+          <div class="feature-title">Custom Names</div>
+          <div class="feature-desc">Set your name and assistant name with voice preferences</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Minimalist Design</div>
+          <div class="feature-desc">Clean, black theme with blue accents and animated waveform</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Setup Memory</div>
+          <div class="feature-desc">One-time setup with personalized greetings and startup animations</div>
+        </div>
+      </div>
+
+      <!-- Technical Excellence -->
+      <div class="section">
+        <div class="section-title">🛠️ Technical Excellence</div>
+        <div class="feature-item">
+          <div class="feature-title">Offline Capability</div>
+          <div class="feature-desc">Core speech recognition works without internet</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Optimized Performance</div>
+          <div class="feature-desc">Small APK size (~57MB) with split architectures</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Privacy Focused</div>
+          <div class="feature-desc">Voice processing with secure API integration and cross-platform support</div>
+        </div>
+      </div>
+
+      <!-- Perfect For -->
+      <div class="section">
+        <div class="section-title">🚀 Perfect For</div>
+        <div class="feature-item">
+          <div class="feature-title">Busy Professionals</div>
+          <div class="feature-desc">Hands-free device control during work</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Drivers</div>
+          <div class="feature-desc">Safe voice navigation and calling while driving</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Students & Tech Enthusiasts</div>
+          <div class="feature-desc">Quick access to apps and cutting-edge voice AI technology</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">Accessibility</div>
+          <div class="feature-desc">Voice-first interaction for enhanced usability</div>
+        </div>
+      </div>
+
+      <!-- Privacy & Security -->
+      <div class="section">
+        <div class="section-title">🔒 Privacy & Security</div>
+        <div class="feature-item">
+          <div class="feature-title">Local Processing</div>
+          <div class="feature-desc">Speech recognition happens on-device with encrypted communication</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">No Always-Listening</div>
+          <div class="feature-desc">Activates only with wake words, minimal data collection with user consent</div>
+        </div>
+      </div>
+
+      <!-- Future of Voice -->
+      <div class="section">
+        <div class="section-title">💫 The Future of Voice Interaction</div>
+        <p class="feature-desc">TYEISA represents the next generation of personal AI assistants - where your earbuds become an extension of your digital life. Experience the magic of conversational AI that understands context, remembers preferences, and seamlessly integrates with your daily routine.</p>
+        <p class="feature-desc"><span class="highlight-text">Download TYEISA today and step into the future of hands-free technology!</span></p>
+        <p class="feature-desc" style="text-align: center; font-weight: 600; color: #00b8ff; margin-top: 20px;">Transform your earbuds. Transform your experience.<br>TYEISA - Your Voice, Your Assistant, Your Way</p>
       </div>
     </div>
-    
-    <!-- Download Button (centered below) -->
-    <a href="https://github.com/Adithyanauk/T.Y.E.I.S.A/releases/download/v1.0.0-beta/app-release.apk" 
-       download="TYEISA-app.apk" 
-       class="button" 
-       style="text-decoration: none; display: inline-block;">
-      DOWNLOAD NOW
-    </a>
+  </div>
+
+  <!-- Developer Section -->
+  <div class="developer-section" id="developer">
+    <h2 class="developer-title">Meet the Developer</h2>
+    <img src="assets/developer.jpg" alt="Adithya Naik" class="developer-image">
+    <div class="developer-bio">
+      Hi, I'm <b>Adithya Naik</b> — a CSE student and passionate app developer from India.<br>
+      I love building innovative apps that combine <b>AI</b>, <b>design</b>, and <b>real-world impact</b>.<br>
+      Tyeisa is one of my experiments to push the boundaries of smart wearable assistants 🚀.
+    </div>
+    <div class="developer-links">
+      <a href="mailto:adithya2005an@gmail.com" class="developer-link">
+        <span class="link-icon">✉️</span>
+        adithya2005an@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/company/105029303/admin/dashboard/" target="_blank" class="developer-link">
+        <span class="link-icon">💼</span>
+        LinkedIn Profile
+      </a>
+      <a href="http://neon.zapfolio.in/adithyanaik" target="_blank" class="developer-link">
+        <span class="link-icon">🌐</span>
+        Portfolio Website
+      </a>
+      <a href="https://github.com/Adithyanauk" target="_blank" class="developer-link">
+        <span class="link-icon">💻</span>
+        GitHub Profile
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <div class="footer-logo">TYEISA</div>
+      <div class="footer-text">
+        Your Voice, Your Assistant, Your Way
+      </div>
+      <div class="copyright">
+        © 2025 Tyeisa. All rights reserved. | Built in India 🇮🇳
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple smooth scrolling for any future links
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    });
+  </script>
   </div>
 </body>
 </html>
